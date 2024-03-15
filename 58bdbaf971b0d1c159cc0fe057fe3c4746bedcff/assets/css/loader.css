@@ -10,9 +10,9 @@
   --loading-animation-time: 0.8s;
 }
 
-.is-preload .loader{
-	opacity: 1;
-	z-index: 999;
+.is-preload .loader {
+  opacity: 1;
+  z-index: 999;
 }
 
 .loader {
@@ -29,7 +29,7 @@
   position: absolute;
   top: calc(50% - 10em);
   transform: scale(var(--loader-scale), var(--loader-scale));
-  
+
   z-index: -999;
   opacity: 0;
 }
@@ -37,8 +37,7 @@
 .loader h1 {
   font-size: 5em;
   margin: 0;
-  animation: loading var(--loading-animation-time) infinite
-    calc(var(--loading-animation-time) / 20) ease-in-out;
+  animation: loading var(--loading-animation-time) infinite calc(var(--loading-animation-time) / 20) ease-in-out;
 
   transition: all 1s ease-in-out;
 }
@@ -73,7 +72,7 @@
 
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.15) 0%, transparent 35%),
     linear-gradient(-90deg, rgba(185, 185, 185, 0.18) 0%, transparent 35%),
-	linear-gradient(0deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+    linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
 }
 
 .loader .container:hover h1 {
@@ -87,15 +86,16 @@
 
 .loader .container::after,
 .loader .container::before {
-  animation: loading var(--loading-animation-time)
-    calc(var(--loading-animation-time) / 12) infinite ease-in-out;
+  animation: loading var(--loading-animation-time) calc(var(--loading-animation-time) / 12) infinite ease-in-out;
 }
 
 @keyframes loading {
+
   0%,
   100% {
     transform: translate(-10px, 0) rotatez(-1.5deg);
   }
+
   50% {
     transform: translate(10px, 0) rotatez(1.5deg);
   }
