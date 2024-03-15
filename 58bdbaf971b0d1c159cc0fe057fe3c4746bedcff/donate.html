@@ -51,29 +51,33 @@
 	</div>
 
 	<script>
-		function timer() {
-			var start = new Date(2024, 2, 27); // 2015.7.2
-			var t = new Date() - start;
-			var h = ~~(t / 1000 / 60 / 60 % 24);
-			if (h < 10) {
-				h = "0" + h;
-			}
-			var m = ~~(t / 1000 / 60 % 60);
-			if (m < 10) {
-				m = "0" + m;
-			}
+		function Gettime() {
+			const now = +new Date();
+			const last = +new Date('2024-2-27 00:00:00');
+			const count = (now - last) / 1000;
+			// 转换为时分秒
+			// h = parseInt(总秒数 / 60 / 60 % 24)   //   计算小时
+			// m = parseInt(总秒数 / 60 % 60);     //   计算分
+			// s = parseInt(总秒数 % 60);    //   计算秒
+			// let d = parseInt(count / 60 / 60 / 24)    //   计算天
+			// mo1 = parseInt(count / 60 / 60 / 24 / 30 % 12)   计算月，但不准确
+			d1 = parseInt(count / 60 / 60 / 24)
+			h1 = parseInt(count / 60 / 60 % 24)
+			m1 = parseInt(count / 60 % 60);
+			s1 = parseInt(count % 60);
+			// mo1 = mo1 < 10 ? '0' + mo1 : mo1;
+			d1 = d1 < 10 ? '0' + d1 : d1;
+			h1 = h1 < 10 ? '0' + h1 : h1;
+			m1 = m1 < 10 ? '0' + m1 : m1;
+			s1 = s1 < 10 ? '0' + s1 : s1;
 
-			var s = ~~(t / 1000 % 60);
-			if (s < 10) {
-				s = "0" + s;
-			}
-			document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
-			document.getElementById('h').innerHTML = h;
-			document.getElementById('m').innerHTML = m;
-			document.getElementById('s').innerHTML = s;
+			document.getElementById('d').innerHTML = d1;
+			document.getElementById('h').innerHTML = h1;
+			document.getElementById('m').innerHTML = m1;
+			document.getElementById('s').innerHTML = s1;
 		}
-		timer();
-		setInterval(timer, 1000);
+		Gettime();
+		setInterval(Gettime, 1000)
 	</script>
 </body>
 
